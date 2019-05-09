@@ -5,7 +5,18 @@ using namespace std;
 vector<string> split_string(string);
 
 // Complete the birthdayCakeCandles function below.
-int birthdayCakeCandles(vector<int> ar) {
+int birthdayCakeCandles(vector<int> ar, int n) {
+    int highest_number = 0;
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (ar[i] > highest_number) {
+            highest_number = ar[i];
+            count = 1;
+        } else if (ar[i] == highest_number) {
+            count++;
+        }
+    }
+    return count;
 }
 
 int main() {
@@ -28,7 +39,7 @@ int main() {
         ar[i] = ar_item;
     }
 
-    int result = birthdayCakeCandles(ar);
+    int result = birthdayCakeCandles(ar, ar_count);
 
     fout << result << "\n";
 

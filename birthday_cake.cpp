@@ -1,48 +1,38 @@
 #include <bits/stdc++.h>
-#include <iostream>
 
 using namespace std;
 
 vector<string> split_string(string);
 
-// Complete the miniMaxSum function below.
-void miniMaxSum(vector<int> arr) {
-    unsigned long long int min = 0;
-    unsigned long long int max = 0;
-    for (int i = 0; i < 5; i++) {
-        unsigned long long int temp = 0;
-        for (int j = 0; j < 5; j++) {
-            if (i == j) {
-                continue;
-            }
-            temp += arr[j];
-        }
-        if (temp > max) {
-            max = temp;
-        }
-        if (temp < min || min == 0) {
-            min = temp;
-        }
-    }
-    // printf("%d %d", min, max);
-    cout << min << " " << max << endl;
+// Complete the birthdayCakeCandles function below.
+int birthdayCakeCandles(vector<int> ar) {
 }
 
 int main() {
-    string arr_temp_temp;
-    getline(cin, arr_temp_temp);
+    ofstream fout(getenv("OUTPUT_PATH"));
 
-    vector<string> arr_temp = split_string(arr_temp_temp);
+    int ar_count;
+    cin >> ar_count;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    vector<int> arr(5);
+    string ar_temp_temp;
+    getline(cin, ar_temp_temp);
 
-    for (int i = 0; i < 5; i++) {
-        int arr_item = stoi(arr_temp[i]);
+    vector<string> ar_temp = split_string(ar_temp_temp);
 
-        arr[i] = arr_item;
+    vector<int> ar(ar_count);
+
+    for (int i = 0; i < ar_count; i++) {
+        int ar_item = stoi(ar_temp[i]);
+
+        ar[i] = ar_item;
     }
 
-    miniMaxSum(arr);
+    int result = birthdayCakeCandles(ar);
+
+    fout << result << "\n";
+
+    fout.close();
 
     return 0;
 }
